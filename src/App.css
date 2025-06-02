@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 
 body{
     font-family:  "Ancizar Sans", sans-serif;
 }
 
 .hero{
-    background-image: linear-gradient(#03160a2f, rgba(0, 0, 0, 0.7)),url(./assets/images/13.jpg);
+    /* background-image: linear-gradient( rgba(0, 0, 0, 0.1)),url(./assets/images/hero2.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+.hero-text{
+      font-family:"Lobster", sans-serif;
+      font-weight: lighter;
+      font-size: 40px;
+
 }

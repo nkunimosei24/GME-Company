@@ -32,14 +32,14 @@ const products = [
         id: 5,
         name: 'Konkonte flour(1kg)',
         price: '₵20',
-        image: konkonte ,
+        image: konkonte,
         description: ' Gari is a popular Nigerian food made from cassava'
     },
     {
         id: 4,
         name: 'Gme Gari(1kg)',
         price: '₵20',
-        image: gari2 ,
+        image: gari2,
         description: ' Gari is a popular Nigerian food made from cassava'
     }
 ]
@@ -47,11 +47,14 @@ const products = [
 const Items = () => {
     return (
         <div>
-            <section className="py-12 px-4 md:px-16 bg-lime-50">
+            <section className="py-12 px-4 md:px-16 bg-lime-50 ">
                 <h2 className="text-3xl font-bold mb-6 text-center text-[#1a882ad7]">Our Products</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {products.map(product => (
-                        <div key={product.id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                        <div
+                            key={product.id}
+                            className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 hover:shadow-lg transition duration-300"
+                        >
                             <img src={product.image} alt={product.name} className="w-full h-100 object-cover" />
                             <div className="p-4">
                                 <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
