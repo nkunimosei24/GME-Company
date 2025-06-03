@@ -1,8 +1,8 @@
 // src/components/Testimonials.jsx
 import React from 'react';
-import testi1 from "../assets/images/19.jpg"
-import testi2 from "../assets/images/19.jpg"
-import testi3 from "../assets/images/19.jpg"
+import testi1 from "../assets/images/35.jpg"
+import testi2 from "../assets/images/37.jpg"
+import testi3 from "../assets/images/36.jpg"
 
 const testimonials = [
   {

@@ -9,7 +9,7 @@ const Newsletter = () => {
     const form = e.target;
 
     const data = new FormData(form);
-    const res = await fetch('https://formspree.io/f/mnqkyxyz', {
+    const res = await fetch('https://formspree.io/f/mnnvqpdo', {
       method: 'POST',
       body: data,
       headers: {
