@@ -1,7 +1,7 @@
 import React from "react";
 import { FaInstagramSquare, FaFacebook, FaTiktok } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
-import pic from "../assets/images/logo.png";
+import pic from "../assets/images/logo.webp";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

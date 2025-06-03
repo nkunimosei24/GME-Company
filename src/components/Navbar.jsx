@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ const Navbar = () => {
   if (isAboutPage) {
     bgColor = 'bg-green-700';
     textColor = 'text-white';
-    hoverColor = 'hover:text-underline';
+    hoverColor = 'hover:underline';
   }
 
   const isFullWidth = isMobile ;

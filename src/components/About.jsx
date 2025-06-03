@@ -1,5 +1,5 @@
 import React from 'react'
-import storyImage from "../assets/images/17.jpg"
+import storyImage from "../assets/images/17.webp"
 import { Link } from 'react-router-dom'
 
 const About = () => {

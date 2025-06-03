@@ -1,6 +1,6 @@
 import React from 'react'
-import ceoImage from "../../../assets/images/16.jpg"
-import cassavaImage from "../../../assets/images/18.jpg"
+import ceoImage from "../../../assets/images/16.webp"
+import cassavaImage from "../../../assets/images/18.webp"
 import biofuelImage from "../../../assets/images/19.jpg"
 import { Link } from 'react-router-dom'
 import Navbar from '../../../components/Navbar'

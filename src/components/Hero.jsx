@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import heroimg1 from '../assets/images/hero2.jpg';
-import heroimg2 from '../assets/images/21.jpg';
-import heroimg3 from '../assets/images/13.jpg'; // Add more images as needed
+import heroimg1 from '../assets/images/hero2.webp';
+import heroimg2 from '../assets/images/21.webp';
+import heroimg3 from '../assets/images/13.webp'; 
 import { Link } from 'react-router-dom';
 
 const slides = [

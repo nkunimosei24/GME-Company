@@ -1,9 +1,9 @@
 import React from 'react'
-import gari from '../assets/images/23.jpg'
-import konkonte from '../assets/images/27.jpg'
-import banku from '../assets/images/22.jpg'
-import gari2 from '../assets/images/24.jpg'
-import agbelema from '../assets/images/26.jpg'
+import gari from '../assets/images/23.webp'
+import konkonte from '../assets/images/27.webp'
+import banku from '../assets/images/22.webp'
+import gari2 from '../assets/images/24.webp'
+import agbelema from '../assets/images/26.webp'
 
 
 const products = [

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"; 
 import { motion } from "framer-motion";
 import Navbar from "../../../components/Navbar";
-import image from "../../../assets/images/34.jpg"
+import image from "../../../assets/images/34.webp"
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
