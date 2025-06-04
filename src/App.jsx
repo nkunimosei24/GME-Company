@@ -13,25 +13,31 @@ function App() {
     {
       path: '/',
       element: <Rootlayout/>,
-      children: [{index: true, element: <Home/>}]
-    },
-
-    {
-      path: '/shop',
-      element: <Shop/>
-    },
-    {
-      path: '/services',
-      element: <Services/>
-    },
-    {
-      path: '/aboutus',
-      element: <AboutUs/>
-    },
-    {
-      path: '/contact',
-      element: <Contact/>
+      children: [  
+      {
+        index: true, 
+        element: <Home/>
+      },
+      {
+        path: '/shop',
+        element: <Shop/>
+      },
+      {
+        path: '/services',
+        element: <Services/>
+      },
+      {
+        path: '/aboutus',
+        element: <AboutUs/>
+      },
+      {
+        path: '/contact',
+        element: <Contact/>
+         }
+    ]
     }
+
+   
 
 
 

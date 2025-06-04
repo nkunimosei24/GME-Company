@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
     <div className=''>
       <Navbar />
-      <div className="px-6 md:px-20 py-10 space-y-16  mt-20">
+      <div className="px-6 md:px-20 py-10 space-y-16 md:ml-20">
 
         <section className="flex flex-col md:flex-row items-center gap-10">
 

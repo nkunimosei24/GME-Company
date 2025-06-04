@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-lime-50 text-black pt-10 pb-6 border-t border-green-200" id="contact">
+    <footer className="bg-lime-50 text-black pt-10 pb-6 md:ml-30 border-t border-green-200" id="contact">
       <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {/* Logo and Description */}
         <div>
@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div>
+        <div className="md:ml-24">
           <h3 className="font-semibold text-lg mb-3 text-green-700">Quick Links</h3>
           <ul className="space-y-2 text-sm text-gray-700">
             <li><Link to="/" className="hover:text-green-700 transition">Home</Link></li>
@@ -62,8 +62,8 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="text-center mt-10 text-sm text-gray-600 px-4">
-        <p className="mb-1">Committed to sustainability and youth empowerment</p>
+      <div className="text-center mt-10 text-sm text-gray-600 px-4 border-t-1 border-gray-300">
+        <p className="mb-1 mt-2">Committed to sustainability and youth empowerment</p>
         <p>&copy; 2025 <span className="font-semibold text-green-700">GME Company Limited</span>. All rights reserved.</p>
       </div>
     </footer>

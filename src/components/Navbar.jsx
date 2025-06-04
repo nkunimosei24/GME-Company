@@ -2,90 +2,81 @@ import React, { useState, useEffect } from 'react';
 import logo from '../assets/images/logo.webp';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const path = location.pathname;
-  const isMobile = window.innerWidth < 768;
-  const isAboutPage = path === '/aboutus';
+  const isAboutPage = location.pathname === '/aboutus';
+
 
   useEffect(() => {
-    // Disable scroll effect on mobile and About page
-    if (isMobile) return;
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile, isAboutPage]);
-
-  // Dynamic styles
-  let bgColor = 'bg-white';
-  let textColor = 'text-black';
-  let hoverColor = 'hover:underline';
-
-  if (isAboutPage) {
-    bgColor = 'bg-green-700';
-    textColor = 'text-white';
-    hoverColor = 'hover:underline';
-  }
-
-  const isFullWidth = isMobile ;
-
-const navClasses = `fixed top-0 left-0 z-50 transition-all duration-300 ${bgColor} ${
-  scrolled && !isFullWidth
-    ? 'w-full shadow-md'
-    : isFullWidth
-    ? 'w-full shadow'
-    : 'w-[90%] left-18 mx-auto mt-4 rounded-md shadow'
-}`;
-
+  const bgColor = isAboutPage ? 'bg-green-700' : 'bg-white';
+  const textColor = isAboutPage && isMobile ? 'text-black' : isAboutPage ? 'text-white' : 'text-black';
+  const hoverColor = 'hover:underline';
 
   return (
-    <nav className={navClasses}>
-      <div className="px-4 py-1 flex justify-between items-center">
-        <Link to="/">
-          <img src={logo} alt="logo" className="w-32 h-auto" />
-        </Link>
+    <>
 
-        {/* Desktop Nav */}
-        <div className={`hidden md:flex space-x-8 items-center mr-4 ${textColor}`}>
-          <Link to="/" className={`font-medium text-lg ${hoverColor}`}>HOME</Link>
-          <Link to="/aboutus" className={`font-medium text-lg ${hoverColor}`}>ABOUT</Link>
-          <Link to="/shop" className={`font-medium text-lg ${hoverColor}`}>SHOP</Link>
-          <Link to="/services" className={`font-medium text-lg ${hoverColor}`}>SERVICES</Link>
-          <Link to="/contact" className={`font-medium text-lg ${hoverColor}`}>CONTACT</Link>
+      <button
+        className={`fixed top-4 left-4 z-50 text-2xl md:hidden ${textColor}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+
+      <div
+        className={`fixed top-0 left-0 h-full w-30 z-40 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          } transition-transform duration-300 ease-in-out md:translate-x-0 md:block ${bgColor} ${textColor} shadow-lg`}
+      >
+        <div className="p-4 flex gap-20 flex-col items-center space-y-6">
+
+          <Link to="/" onClick={() => setIsOpen(false)}>
+            <img src={logo} alt="logo" className="w-32 h-auto mt-6" />
+          </Link>
+
+
+          <div className="flex gap-4 flex-col space-y-4 text-lg font-medium w-full items-start px-4">
+            <NavLink to="/" onClick={() => setIsOpen(false)} className={({ isActive }) =>
+              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
+            }>
+              HOME
+            </NavLink>
+            <NavLink to="/aboutus" onClick={() => setIsOpen(false)} className={({ isActive }) =>
+              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
+            }>
+              ABOUT
+            </NavLink>
+            <NavLink to="/shop" onClick={() => setIsOpen(false)} className={({ isActive }) =>
+              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
+            }>
+              SHOP
+            </NavLink>
+            <NavLink to="/services" onClick={() => setIsOpen(false)} className={({ isActive }) =>
+              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
+            }>
+              SERVICES
+            </NavLink>
+            <NavLink to="/contact" onClick={() => setIsOpen(false)} className={({ isActive }) =>
+              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
+            }>
+              CONTACT
+            </NavLink>
+          </div>
+
         </div>
-
-        {/* Mobile Toggle */}
-        <button
-          className={`md:hidden text-2xl ${textColor}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className={`md:hidden px-4 pb-4 space-y-4 flex flex-col ${bgColor} ${textColor}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)} className={`font-medium text-lg ${hoverColor}`}>HOME</Link>
-          <Link to="/aboutus" onClick={() => setMenuOpen(false)} className={`font-medium text-lg ${hoverColor}`}>ABOUT</Link>
-          <Link to="/shop" onClick={() => setMenuOpen(false)} className={`font-medium text-lg ${hoverColor}`}>SHOP</Link>
-          <Link to="/services" onClick={() => setMenuOpen(false)} className={`font-medium text-lg ${hoverColor}`}>SERVICES</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)} className={`font-medium text-lg ${hoverColor}`}>CONTACT</Link>
-        </div>
-      )}
-    </nav>
+    </>
   );
 };
 

@@ -47,7 +47,7 @@ const products = [
 const Items = () => {
     return (
         <div>
-            <section className="py-12 px-4 md:px-16 bg-lime-50 ">
+            <section className="py-12 px-4 md:px-16 bg-lime-50 md:ml-20">
                 <h2 className="text-3xl font-bold mb-6 text-center text-[#1a882ad7]">Our Products</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {products.map(product => (

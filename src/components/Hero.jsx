@@ -42,7 +42,7 @@ const Hero = () => {
         >
              <div className="absolute inset-0 bg-black/20 z-0" />
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col lg:flex-row gap-8 mb-12 mt-20 items-center justify-center py-20 backdrop-blur-xs backdrop-brightness-75">
+                <div className="flex flex-col lg:flex-row gap-8 mb-12  items-center justify-center py-20 backdrop-blur-xs backdrop-brightness-75">
                     <div className="relative z-20 px-4 max-w-3xl mx-auto text-center">
                         <div>
                             <div className="flex mb-4 justify-center items-center">
