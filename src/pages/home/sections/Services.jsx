@@ -30,7 +30,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section className="bg-white py-12 px-4 md:px-16  md:ml-20">
+    <section className="bg-white py-12 px-4 md:px-16  md:mt-20">
       <Navbar />
       <div className="text-center mb-12 ">
         <h2 className="text-3xl font-bold text-[#1a882ad7]">Our Agricultural Mechanization Services</h2>

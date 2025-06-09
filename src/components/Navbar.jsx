@@ -1,82 +1,185 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/images/logo.webp';
+import logo from '../assets/images/logo.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-
+import { Link, useLocation, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const isAboutPage = location.pathname === '/aboutus';
-
+  const path = location.pathname;
+  const isMobile = window.innerWidth < 768;
+  const isAboutPage = path === '/aboutus';
+  const isFullWidth = isMobile || isAboutPage;
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    // Disable scroll effect on mobile and About page
+    if (isMobile || isAboutPage) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile, isAboutPage]);
+
+  // Dynamic styles
+  let bgColor = 'bg-white';
+  let textColor = 'text-black';
+  let hoverColor = 'hover:underline';
+
+  if (isAboutPage) {
+    bgColor = 'bg-green-600';
+    textColor = 'text-white';
+    hoverColor = 'hover:underline';
+  }
 
 
-  const bgColor = isAboutPage ? 'bg-green-700' : 'bg-white';
-  const textColor = isAboutPage && isMobile ? 'text-black' : isAboutPage ? 'text-white' : 'text-black';
-  const hoverColor = 'hover:underline';
+
+  const navClasses = `fixed top-0 left-0 z-50 transition-all duration-300 ${bgColor} ${scrolled && !isFullWidth
+      ? 'w-full shadow-md'
+      : isFullWidth
+        ? 'w-full shadow'
+        : 'w-[90%] left-18 mx-auto mt-4 rounded-md shadow'
+    }`;
 
   return (
-    <>
+    <nav className={navClasses}>
+      <div className="px-4  flex justify-between items-center">
+        <Link to="/">
+          <img src={logo} alt="logo" className="w-32 h-auto" />
+        </Link>
 
-      <button
-        className={`fixed top-4 left-4 z-50 text-2xl md:hidden ${textColor}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </button>
+        {/* Desktop Nav */}
+        <div className={`hidden md:flex  space-x-8 items-center ${textColor}`}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            HOME
+          </NavLink>
 
+          <NavLink
+            to="/aboutus"
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-white text-green-600' : textColor
+              } ${hoverColor}`
+            }
+          >
+            ABOUT
+          </NavLink>
 
-      <div
-        className={`fixed top-0 left-0 h-full w-30 z-40 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out md:translate-x-0 md:block ${bgColor} ${textColor} shadow-lg`}
-      >
-        <div className="p-4 flex gap-20 flex-col items-center space-y-6">
+          <NavLink
+            to="/shop"
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            SHOP
+          </NavLink>
 
-          <Link to="/" onClick={() => setIsOpen(false)}>
-            <img src={logo} alt="logo" className="w-32 h-auto mt-6" />
-          </Link>
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            SERVICES
+          </NavLink>
 
-
-          <div className="flex gap-4 flex-col space-y-4 text-lg font-medium w-full items-start px-4">
-            <NavLink to="/" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
-            }>
-              HOME
-            </NavLink>
-            <NavLink to="/aboutus" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
-            }>
-              ABOUT
-            </NavLink>
-            <NavLink to="/shop" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
-            }>
-              SHOP
-            </NavLink>
-            <NavLink to="/services" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
-            }>
-              SERVICES
-            </NavLink>
-            <NavLink to="/contact" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-              `${isActive ? 'bg-green-600 text-white rounded px-2 py-1' : ''} hover:underline`
-            }>
-              CONTACT
-            </NavLink>
-          </div>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            CONTACT
+          </NavLink>
 
         </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className={`md:hidden text-2xl ${textColor}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
-    </>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className={`md:hidden px-4 pb-4 space-y-4 flex flex-col ${bgColor} ${textColor}`}>
+          <NavLink
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            HOME
+          </NavLink>
+
+          <NavLink
+            to="/aboutus"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-white text-green-600' : textColor
+              } ${hoverColor}`
+            }
+          >
+            ABOUT
+          </NavLink>
+
+          <NavLink
+            to="/shop"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            SHOP
+          </NavLink>
+
+          <NavLink
+            to="/services"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            SERVICES
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              } ${hoverColor}`
+            }
+          >
+            CONTACT
+          </NavLink>
+
+        </div>
+      )}
+    </nav>
   );
 };
 
