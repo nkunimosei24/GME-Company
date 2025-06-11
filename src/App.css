@@ -19,3 +19,16 @@ body{
       font-size: 40px;
 
 }
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.breathe {
+  animation: breathe 3s ease-in-out infinite;
+}

@@ -11,7 +11,8 @@ const Navbar = () => {
   const path = location.pathname;
   const isMobile = window.innerWidth < 768;
   const isAboutPage = path === '/aboutus';
-  const isFullWidth = isMobile || isAboutPage;
+  const isShopPage = path === '/shop';
+  const isFullWidth = isMobile;
 
   useEffect(() => {
     // Disable scroll effect on mobile and About page
@@ -34,7 +35,7 @@ const Navbar = () => {
   let textColor = 'text-black';
   let hoverColor = 'hover:underline';
 
-  if (isAboutPage) {
+  if (isAboutPage || isShopPage) {
     bgColor = 'bg-green-600';
     textColor = 'text-white';
     hoverColor = 'hover:underline';
@@ -81,7 +82,7 @@ const Navbar = () => {
           <NavLink
             to="/shop"
             className={({ isActive }) =>
-              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-green-600 text-white' : textColor
+              `font-medium text-lg px-2 py-1 rounded ${isActive ? 'bg-white text-green-600' : textColor
               } ${hoverColor}`
             }
           >
