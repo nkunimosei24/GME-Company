@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // Disable scroll effect on mobile and About page
-    if (isMobile || isAboutPage) return;
+    if (isMobile) return;
 
     const handleScroll = () => {
       if (window.scrollY > 80) {
@@ -44,10 +44,10 @@ const Navbar = () => {
 
 
   const navClasses = `fixed top-0 left-0 z-50 transition-all duration-300 ${bgColor} ${scrolled && !isFullWidth
-      ? 'w-full shadow-md'
-      : isFullWidth
-        ? 'w-full shadow'
-        : 'w-[90%] left-18 mx-auto mt-4 rounded-md shadow'
+    ? 'w-full shadow-md'
+    : isFullWidth
+      ? 'w-full shadow'
+      : 'w-[90%] left-18 mx-auto mt-4 rounded-md shadow'
     }`;
 
   return (

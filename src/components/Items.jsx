@@ -1,64 +1,54 @@
-import React from 'react'
-import fruitsImg from '../assets/images/27.webp'
-import vegetablesImg from '../assets/images/22.webp'
-import basketImg from '../assets/images/23.webp'
-import juiceImg from '../assets/images/24.webp'
-import driedImg from '../assets/images/26.webp'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import gari from '../assets/images/23.webp'
+import konkonte from '../assets/images/27.webp'
+import banku from '../assets/images/22.webp'
+import gari2 from '../assets/images/24.webp'
+import agbelema from '../assets/images/26.webp'
 
-const categories = [
-  { id: 1, label: 'Konkonte', image: fruitsImg },
-  { id: 2, label: 'Banku Mix', image: vegetablesImg },
-  { id: 3, label: 'Gme Gari', image: juiceImg },
-  { id: 4, label: 'Agbelema', image: driedImg },
+const products = [
+  { id: 1, name: 'Gme banku mix(1kg)', price: '₵20', image: banku, description: 'Gme Banku Mix is a convenient, ready-to-cook blend made from fermented corn and cassava dough. It delivers the authentic taste of traditional Ghanaian banku with less hassle, perfect for quick and delicious home-cooked meals.' },
+  { id: 2, name: 'Ijebu Gari(1kg)', price: '₵20', image: gari, description: 'Ijebu Gari is a popular Nigerian food made from cassava' },
+  { id: 3, name: 'Ijebu Gari(1kg)', price: '₵20', image: agbelema, description: 'Ijebu Gari is a popular Nigerian food made from cassava' },
+  { id: 5, name: 'Konkonte flour(1kg)', price: '₵20', image: konkonte, description: 'Gari is a popular Nigerian food made from cassava' },
+  { id: 4, name: 'Gme Gari(1kg)', price: '₵20', image: gari2, description: 'Gari is a popular Nigerian food made from cassava' }
 ]
 
 const Items = () => {
+  const [activeId, setActiveId] = useState(null)
+
+  const toggleDescription = (id) => {
+    // toggle if clicked again, otherwise set new
+    setActiveId(prev => (prev === id ? null : id))
+  }
+
   return (
-    <section className="py-16 px-4 md:px-20 bg-lime-50 md:mt-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        {/* Left column */}
-        <div className="flex flex-col gap-6">
-          {categories.slice(0, 2).map(item => (
+    <section className="py-12 px-4 md:px-16 bg-lime-50">
+      <h2 className="text-3xl font-bold mb-6 text-center text-[#1a882ad7]">Our Products</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {products.map(product => {
+          const isActive = activeId === product.id
+          return (
             <div
-              key={item.id}
-              className="relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition duration-300 group"
+              key={product.id}
+              className="relative group bg-white shadow-md rounded-lg overflow-hidden transition duration-300 cursor-pointer"
+              onClick={() => toggleDescription(product.id)}
             >
-              <img src={item.image} alt={item.label} className="w-full h-85 object-cover breathe" />
-              <span className="absolute bottom-0 left-0 bg-green-600 text-white text-sm px-4 py-2 rounded-tr-lg">
-                {item.label}
-              </span>
+              <img
+                src={product.image}
+                alt={product.name}
+                className={`w-full h-90 object-cover transition duration-300 ${
+                  isActive ? 'blur-sm brightness-75' : 'group-hover:blur-sm group-hover:brightness-75'
+                }`}
+              />
+              <div className={`absolute inset-0 flex flex-col justify-center items-center text-center px-4 transition duration-300 text-white ${
+                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+              }`}>
+                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                <p className="text-md">{product.description}</p>
+              </div>
             </div>
-          ))}
-        </div>
-
-        {/* Center column */}
-        <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-3xl font-bold text-green-700">Our Products</h2>
-          <p className="text-gray-600 text-base">Durable and easier to prepare</p>
-          <Link to ='/shop'className="bg-green-600 hover:bg-transparent hover:border-1 hover:text-green-600 text-white px-6 py-2 rounded-md transition font-medium">
-            Shop now
-          </Link>
-          <div className="mt-6 w-full rounded-xl overflow-hidden shadow-md">
-            <img src={basketImg} alt="Basket" className="w-full h-85 object-cover breathe" />
-            
-          </div>
-        </div>
-
-        {/* Right column */}
-        <div className="flex flex-col gap-6">
-          {categories.slice(2).map(item => (
-            <div
-              key={item.id}
-              className="relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition duration-300 group"
-            >
-              <img src={item.image} alt={item.label} className="w-full h-85 object-cover breathe" />
-              <span className="absolute bottom-0 left-0 bg-green-600 text-white text-sm px-4 py-2 rounded-tr-lg">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </section>
   )

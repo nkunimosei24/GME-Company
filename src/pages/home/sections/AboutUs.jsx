@@ -1,6 +1,6 @@
 import React from 'react'
 import ceoImage from "../../../assets/images/16.webp"
-import cassavaImage from "../../../assets/images/18.webp"
+import cassavaImage from "../../../assets/images/18.jpg"
 import biofuelImage from "../../../assets/images/19.jpg"
 import { Link } from 'react-router-dom'
 import Navbar from '../../../components/Navbar'
@@ -28,7 +28,7 @@ const AboutUs = () => {
             <img
               src={ceoImage}
               alt="CEO of GME Company"
-              className="w-full rounded-lg shadow-lg object-cover"
+              className="w-full h-70  rounded-lg shadow-lg object-cover"
             />
           </div>
         </section>
@@ -48,7 +48,7 @@ const AboutUs = () => {
           <img
             src={cassavaImage}
             alt="Cassava Processing"
-            className="w-full md:w-1/3 rounded-xl shadow-lg object-cover"
+            className="w-full md:w-1/3 h-70 rounded-xl shadow-lg object-cover"
           />
         </section>
 
@@ -63,7 +63,7 @@ const AboutUs = () => {
           <img
             src={biofuelImage}
             alt="Biofuel Vision"
-            className="w-full md:w-1/3 rounded-xl shadow-lg object-cover"
+            className="w-full md:w-1/3 h-70 rounded-xl shadow-lg object-cover"
           />
         </section>
 
