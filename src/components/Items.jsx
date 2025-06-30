@@ -7,10 +7,10 @@ import agbelema from '../assets/images/26.webp'
 
 const products = [
   { id: 1, name: 'Gme banku mix(1kg)', price: '₵20', image: banku, description: 'Gme Banku Mix is a convenient, ready-to-cook blend made from fermented corn and cassava dough. It delivers the authentic taste of traditional Ghanaian banku with less hassle, perfect for quick and delicious home-cooked meals.' },
-  { id: 2, name: 'Ijebu Gari(1kg)', price: '₵20', image: gari, description: 'Ijebu Gari is a popular Nigerian food made from cassava' },
-  { id: 3, name: 'Ijebu Gari(1kg)', price: '₵20', image: agbelema, description: 'Ijebu Gari is a popular Nigerian food made from cassava' },
-  { id: 5, name: 'Konkonte flour(1kg)', price: '₵20', image: konkonte, description: 'Gari is a popular Nigerian food made from cassava' },
-  { id: 4, name: 'Gme Gari(1kg)', price: '₵20', image: gari2, description: 'Gari is a popular Nigerian food made from cassava' }
+  { id: 2, name: 'Ijebu Gari(1kg)', price: '₵20', image: gari, description: 'Ijebu Gari is a finely textured, sour-tasting variety of gari from southwestern Nigeria, known for its crisp texture and sharp tanginess due to extended fermentation. It’s especially enjoyed when soaked in cold water.Ijebu Gari is a popular Nigerian food made from cassava' },
+  { id: 3, name: 'Ijebu Gari(1kg)', price: '₵20', image: agbelema, description: 'GME Agbelema Flour is a premium-quality fermented cassava flour, crafted to deliver the authentic taste of traditional Ghanaian agbelema. Perfect for making delicious flatbreads or porridge, it’s rich in fiber, easy to prepare, and ideal for nutritious, gluten-free meals.' },
+  { id: 5, name: 'Konkonte flour(1kg)', price: '₵20', image: konkonte, description: 'GME Konkonte Flour offers the rich, traditional taste of Ghana’s beloved cassava dish, locally known as “Face the Wall.” Finely processed for a smooth, lump-free texture, it’s perfect with local soups and ideal for health-conscious meals—gluten-free and high in natural fiber.' },
+  { id: 4, name: 'Gme Gari(1kg)', price: '₵20', image: gari2, description: 'GME Gari is a high-quality, finely processed cassava granule loved across West Africa for its crisp texture and versatility. Carefully sourced and hygienically prepared, our gari is rich in fiber, energy, and authentic taste—perfect for both quick meals and traditional dishes.' }
 ]
 
 const Items = () => {
