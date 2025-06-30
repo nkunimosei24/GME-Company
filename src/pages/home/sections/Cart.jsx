@@ -4,6 +4,7 @@ import PaystackCheckout from '../../../components/PaystackCheckout';
 import { Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { IoIosArrowRoundBack } from 'react-icons/io';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,7 @@ const Cart = () => {
   );
 
   return (
-    <section className="py-12 px-4 md:mt-20 min-h-screen bg-[#71a117]">
+    <section className="py-12 px-4 md:mt-20 min-h-screen bg-[#17973ea8]">
       <div className="max-w-4xl mx-auto">
 
         <h2 className="text-3xl font-bold mb-8 text-center text-white">Your Cart</h2>
@@ -82,15 +83,26 @@ const Cart = () => {
 
                     <button
                       onClick={() => {
-                        const confirmed = window.confirm('Are you sure you want to delete this item?')
-                        if(confirmed) {
-                          removeFromCart(item.id)
-                        }
-                        }}
+                        Swal.fire({
+                        
+                          text: 'Are you sure you want to delete this item from cart?',
+                          icon: 'warning',
+                          showCancelButton: true,
+                          confirmButtonColor: '#d33',
+                          cancelButtonColor: '#3085d6',
+                          confirmButtonText: 'Yes, delete it!',
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            removeFromCart(item.id);
+                            Swal.fire('Deleted!', 'The item has been removed.', 'success');
+                          }
+                        });
+                      }}
                       className="text-red-600 text-lg hover:underline"
                     >
                       <FaTrash />
                     </button>
+
                   </div>
                 </div>
               ))}
