@@ -7,6 +7,7 @@ import Services from './pages/home/sections/Services'
 import Contact from './pages/home/sections/Contact'
 import AboutUs from './pages/home/sections/AboutUs'
 import Rootlayout from './layouts/Rootlayout'
+import Cart from './pages/home/sections/Cart'
 
 function App() {
   const router = createBrowserRouter( [
@@ -33,6 +34,10 @@ function App() {
       {
         path: '/contact',
         element: <Contact/>
+         },
+      {
+        path: '/cart',
+        element: <Cart/>
          }
     ]
     }
