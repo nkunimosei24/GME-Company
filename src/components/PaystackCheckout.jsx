@@ -17,7 +17,7 @@ const PaystackCheckout = ({ email, amount, productName }) => {
   const handleClose = () => {
     Swal.fire({
       icon: 'info',
-      title: 'Payment Cancelled',
+      title: 'Payment Canceled',
       text: 'You closed the checkout without completing the payment.',
       confirmButtonColor: '#d33',
     });
