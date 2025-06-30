@@ -29,24 +29,41 @@ const Items = () => {
           const isActive = activeId === product.id
           return (
             <div
-              key={product.id}
-              className="relative group bg-white shadow-md rounded-lg overflow-hidden transition duration-300 cursor-pointer"
-              onClick={() => toggleDescription(product.id)}
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className={`w-full h-90 object-cover transition duration-300 ${
-                  isActive ? 'blur-sm brightness-75' : 'group-hover:blur-sm group-hover:brightness-75'
-                }`}
-              />
-              <div className={`absolute inset-0 flex flex-col justify-center items-center text-center px-4 transition duration-300 text-white ${
-                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-              }`}>
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                <p className="text-md">{product.description}</p>
-              </div>
-            </div>
+  key={product.id}
+  className="relative group bg-white shadow-md rounded-lg overflow-hidden transition duration-300"
+>
+  <img
+    src={product.image}
+    alt={product.name}
+    className={`w-full h-90 object-cover transition duration-300 ${
+      activeId === product.id
+        ? 'blur-sm brightness-75'
+        : 'group-hover:blur-sm group-hover:brightness-75'
+    }`}
+  />
+
+  {/* Overlay Content */}
+  <div
+    className={`absolute inset-0 flex flex-col justify-center items-center text-center px-4 transition duration-300 text-white ${
+      activeId === product.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+    }`}
+  >
+    <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+    <p className="text-sm">{product.description}</p>
+  </div>
+
+  {/* View Button - Only on Mobile */}
+  <div className="absolute bottom-2 left-6 transform -translate-x-1/2 z-10 block md:hidden">
+    <button
+      onClick={() => toggleDescription(product.id)}
+      className="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-1 rounded-md shadow-md transition"
+    >
+      {activeId === product.id ? 'Hide' : 'View'}
+    </button>
+  </div>
+</div>
+
+
           )
         })}
       </div>
