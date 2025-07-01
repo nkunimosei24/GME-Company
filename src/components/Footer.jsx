@@ -3,6 +3,7 @@ import { FaInstagramSquare, FaFacebook, FaTiktok } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import pic from "../assets/images/logo.webp";
 import { Link } from "react-router-dom";
+import { RiWhatsappFill } from 'react-icons/ri';
 
 const Footer = () => {
   return (
@@ -36,7 +37,7 @@ const Footer = () => {
           <h3 className="font-semibold text-lg mb-3 text-green-700">Contact</h3>
           <ul className="text-sm space-y-2 text-gray-700">
             <li>Barracks Rd, Ho, Ghana</li>
-            <li>+233 593033206</li>
+            <a href="tel:+233256484404">+233 25 648 4404</a>
           </ul>
 
           <h3 className="font-semibold text-lg mt-5 mb-2 text-green-700">Follow Us</h3>
@@ -57,6 +58,15 @@ const Footer = () => {
               className="text-2xl text-gray-600 hover:text-black transition duration-200">
               <FaTiktok />
             </a>
+             <a
+                              href={`https://wa.me/233246655247?`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Whatsapp"
+                              className="text-2xl text-gray-600 hover:text-green-500 transition duration-200"
+                            >
+                              <RiWhatsappFill />
+                            </a>
           </div>
         </div>
       </div>

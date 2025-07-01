@@ -127,7 +127,7 @@ const Cart = () => {
                   productName="Cart Purchase"
                 />
               ) : (
-                <p className="text-red-500 mb-4">Enter your email to proceed</p>
+                <p className="text-red-500 mb-4">Enter your email to receive a payment receipt and confirmation.</p>
               )}
 
 

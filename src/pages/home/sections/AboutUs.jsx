@@ -8,11 +8,11 @@ import Navbar from '../../../components/Navbar'
 const AboutUs = () => {
   return (
     <div >
-      <div className="px-6 md:px-20 py-10 space-y-16 md:mt-20">
+      <div className="px-6 md:px-20 py-10 space-y-16 md:mt-20 md:mx-12">
 
         <section className="flex flex-col md:flex-row items-center gap-10">
 
-          <div className="md:w-2/3">
+          <div className="md:w-2/4 ">
             <h2 className="text-3xl font-bold mb-4 text-[#1a882ad7]">From Farmer to Visionary</h2>
             <p className="text-gray-700 text-lg">
               At the heart of GME Company Limited is a powerful story — one of passion, perseverance, and purpose. Our founder and CEO began as a farmer, deeply connected to the land. With hands in the soil and eyes on the future, he discovered a lifelong passion for agriculture.
@@ -24,7 +24,7 @@ const AboutUs = () => {
             <p className="text-gray-700 text-lg mt-4">Furthermore, we are dedicated to training and equipping the youth with essential agricultural techniques, empowering them to succeed in their farming ventures. </p>
           </div>
           
-          <div className="bg-lime-50 p-6 rounded-xl shadow-md w-full md:w-1/3">
+          <div className="bg-lime-50 p-6 rounded-xl shadow-md w-full md:w-1/2 ">
             <img
               src={ceoImage}
               alt="CEO of GME Company"
@@ -35,7 +35,7 @@ const AboutUs = () => {
 
 
         <section className="flex flex-col md:flex-row-reverse items-center gap-10">
-          <div className="md:w-2/3">
+          <div className="md:w-2/4">
             <h2 className="text-3xl font-bold mb-4 text-[#1a882ad7]">The Cassava Value Chain Today</h2>
             <p className="text-gray-700 text-lg">
               While the dream of renewable energy is in motion, GME is fully engaged in its current mission: processing cassava into high-quality food products like gari, banku mix, konkonte flour, and fermented cassava flour.
@@ -48,13 +48,13 @@ const AboutUs = () => {
           <img
             src={cassavaImage}
             alt="Cassava Processing"
-            className="w-full md:w-1/3 h-70 rounded-xl shadow-lg object-cover"
+            className="w-full md:w-1/2 h-70 rounded-xl shadow-lg object-cover"
           />
         </section>
 
 
         <section className="flex flex-col md:flex-row items-center gap-10">
-          <div className="md:w-2/3">
+          <div className="md:w-2/4">
             <h2 className="text-3xl font-bold mb-4 text-[#1a882ad7]">Looking Ahead: Renewable Energy Through Cassava</h2>
             <p className="text-gray-700 text-lg">
               Though our hands are busy producing food today, our eyes remain on the horizon. Our dream is to build Ghana’s first cassava-to-biofuel processing plant — converting cassava into ethanol and sustainable biofuels to reduce emissions and dependence on fossil fuels.
@@ -63,7 +63,7 @@ const AboutUs = () => {
           <img
             src={biofuelImage}
             alt="Biofuel Vision"
-            className="w-full md:w-1/3 h-70 rounded-xl shadow-lg object-cover"
+            className="w-full md:w-1/2 h-70 rounded-xl shadow-lg object-cover"
           />
         </section>
 
