@@ -36,7 +36,7 @@ const Contact = () => {
         <motion.form
           action="https://formspree.io/f/mnnvqpdo"
           method="POST"
-          className="relative z-10 flex flex-col gap-6 p-8 w-full  max-w-md rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg md:mt-28"
+          className="relative z-10 flex flex-col gap-6 p-8 w-full  max-w-md rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg md:mt-26"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
