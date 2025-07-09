@@ -51,7 +51,7 @@ const Footer = () => {
               <FaFacebook />
             </a>
             <a href="mailto:gmeeninfo@gmail.com" aria-label="Email"
-              className="text-2xl text-gray-600 hover:text-green-600 transition duration-200">
+              className="text-2xl text-gray-600 hover:text-blue-300 transition duration-200">
               <TfiEmail />
             </a>
             <a href="https://www.tiktok.com/@gmecompanyltd?_t=ZM-8wU0KAMfPWy&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
@@ -59,7 +59,7 @@ const Footer = () => {
               <FaTiktok />
             </a>
              <a
-                              href={`https://wa.me/233246655247?`}
+                              href={`https://wa.me/233256484404?`}
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label="Whatsapp"
